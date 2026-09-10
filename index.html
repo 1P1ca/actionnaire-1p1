@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f6f1eb" />
+  <title>1+1 | Parcours de valeur actionnaire</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#accueil" aria-label="1+1 Stratégie">
+      <img src="logo-1p1-terracotta.png" alt="1+1 Stratégie" />
+      <span>STRATÉGIE<br>CAPITAL<br>EXÉCUTION</span>
+    </a>
+    <div class="top-actions"><button class="lang" id="langBtn">EN</button><button class="ghost" id="saveBtn">Sauvegarder</button></div>
+  </header>
+
+  <main id="app">
+    <section class="screen active" data-screen="home" id="accueil">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">PARCOURS DE VALEUR ACTIONNAIRE</p>
+          <h1>Voir où vous en êtes.<br><em>Décider où aller.</em></h1>
+          <p class="lede">Un parcours guidé pour relier la performance de votre entreprise, votre patrimoine et votre prochaine étape comme actionnaire-dirigeant.</p>
+          <button class="primary" data-go="profile">Commencer le parcours <span>→</span></button>
+          <p class="micro">Environ 8 minutes · Vos réponses restent dans ce navigateur</p>
+        </div>
+        <div class="hero-card">
+          <div class="orbit"><span class="orbit-dot dot-1"></span><span class="orbit-dot dot-2"></span><span class="orbit-dot dot-3"></span><div class="orbit-center">1<br><small>+</small><br>1</div></div>
+          <div class="hero-card-copy"><p class="eyebrow">LE POINT DE DÉPART</p><h3>Une décision importante ne se prend pas dans un seul tableau.</h3><p>Nous mettons en relation les signaux personnels, financiers et opérationnels pour faire émerger les bons choix.</p></div>
+        </div>
+      </div>
+      <div class="trust-row"><span>CONFIDENTIEL</span><span>STRUCTURÉ</span><span>ORIENTÉ ACTION</span><span>CONÇU POUR LES PME QUÉBÉCOISES</span></div>
+    </section>
+
+    <section class="screen" data-screen="profile">
+      <div class="section-head"><p class="eyebrow">01 / CONTEXTE</p><h2>Commençons par le contexte de votre décision.</h2><p>Il n’y a pas de bonne ou de mauvaise réponse. Ce portrait sert à calibrer la lecture des résultats.</p></div>
+      <div class="form-grid">
+        <label>Votre rôle<select id="role"><option value="owner">Actionnaire-dirigeant</option><option value="partner">Partenaire / coactionnaire</option><option value="successor">Relève / successeur</option><option value="advisor">Conseiller de l’actionnaire</option></select></label>
+        <label>Horizon de décision<select id="horizon"><option value="now">Je veux clarifier les prochaines étapes</option><option value="3">Dans les 3 prochaines années</option><option value="5">Dans 3 à 5 ans</option><option value="later">Plus tard, mais je veux me préparer</option></select></label>
+        <label>Secteur d’activité<input id="sector" placeholder="Ex. manufacturier, services professionnels" /></label>
+        <label>Nombre d’employés<select id="employees"><option value="small">1 à 19</option><option value="mid">20 à 99</option><option value="large">100 et plus</option></select></label>
+      </div>
+      <div class="actions"><button class="secondary" data-go="home">Retour</button><button class="primary" data-go="questionnaire">Continuer <span>→</span></button></div>
+    </section>
+
+    <section class="screen" data-screen="questionnaire">
+      <div class="question-shell"><div class="progress-line"><span id="progressFill"></span></div><div class="question-meta"><span id="questionCount">QUESTION 1 DE 12</span><span id="dimensionLabel">PERSONNEL</span></div><div id="questionContent"></div><div class="scale-hint"><span>Pas encore en place</span><span>Très solide</span></div><div class="actions"><button class="secondary" id="prevQuestion">Retour</button><button class="primary" id="nextQuestion">Continuer <span>→</span></button></div></div>
+    </section>
+
+    <section class="screen" data-screen="results">
+      <div class="results-head"><div><p class="eyebrow">VOTRE LECTURE INITIALE</p><h2 id="resultTitle">Votre portrait de valeur</h2><p id="resultIntro"></p></div><button class="secondary" id="printBtn">Imprimer / PDF</button></div>
+      <div class="score-grid"><div class="score-card maturity"><span class="card-label">MATURITÉ GLOBALE</span><div class="score-big" id="maturityScore">—</div><h3 id="maturityName">—</h3><p id="maturityDesc"></p></div><div class="score-card"><span class="card-label">SIGNAL D’ACTION</span><div class="signal-pill" id="signalPill">—</div><h3 id="signalTitle">—</h3><p id="signalDesc"></p></div><div class="score-card"><span class="card-label">CONFIDENCE</span><div class="score-big small" id="confidenceScore">—</div><h3>Données à approfondir</h3><p>Cette première lecture devient plus précise avec vos chiffres réels et une discussion structurée.</p></div></div>
+      <div class="results-layout"><div><div class="panel"><div class="panel-title"><h3>Les 4C de votre entreprise</h3><span>BASE DE VALEUR</span></div><div id="fourCs" class="bars"></div></div><div class="panel"><div class="panel-title"><h3>Les trois écarts à surveiller</h3><span>HYPOTHÈSES QUALITATIVES</span></div><div id="gaps" class="gap-list"></div></div></div><aside><div class="panel accent-panel"><div class="panel-title"><h3>Architecture cible</h3><span>À 12 MOIS</span></div><div id="architecture"></div></div><div class="panel"><div class="panel-title"><h3>Priorités recommandées</h3><span>P0 / P1 / P2</span></div><div id="priorities"></div></div></aside></div>
+      <div class="roadmap panel"><div class="panel-title"><h3>Feuille de route d’implantation</h3><button class="text-btn" id="restartBtn">Recommencer le parcours</button></div><div id="roadmapItems" class="roadmap-grid"></div></div>
+      <div class="disclaimer">Cette lecture est un outil de réflexion et de priorisation. Elle ne constitue pas une évaluation d’entreprise, un avis fiscal, juridique ou financier.</div>
+    </section>
+  </main>
+  <footer><span>1+1 Stratégie</span><span>Parcours de valeur actionnaire</span><span>Confidentiel</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
